@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <title>Test</title>
+</head>
+
+<body>
+
+    <header class="header">
+        <nav class="navigation"></nav>
+            <h1>CALCUL</h1>
+        </nav>
+    </header>
+
+    <p class="title">Calcul de l'hypotenuse</p>
+
+    <div class="container">
+        <form>
+            <input class="input entree1" type="text" placeholder="Première valeur">
+            <input class="input entree2" type="text" placeholder="Deuxieme valeur">
+            <button>Calculer</button>
+        </form>
+    </div>
+
+</body>
+
+<script>
+    const container = document.querySelector('.container');
+    const titre = document.querySelector('.title');
+    const form = document.querySelector('form');
+    const input1 = document.querySelector('.entree1');
+    const input2 = document.querySelector('.entree2');
+
+
+    form.addEventListener('submit', event => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        if (!isNaN(input1.value) || !isNaN(input2.value)) {
+            let result1 = input1.value * input1.value;
+            let result2 = input2.value * input2.value;
+
+            let total = result1 + result2;
+
+            let textp = document.createTextNode('Le calcul = ' + Math.sqrt(total));
+
+            input1.value = " ";
+            input2.value = " ";
+            titre.innerHTML = " ";
+            titre.append(textp);
+        } else {
+            window.alert('des chiffres seulement');
+        }
+    })
+</script>
+
+</html>
